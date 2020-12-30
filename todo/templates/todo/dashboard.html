@@ -5,9 +5,35 @@
         <meta name= "viewport" content= "width= device-width, initial-scale =1">
         <title>To-Do List</title>
         {% load static %}
-        <link rel= "stylesheet" href= "{% static 'css/app.css' %}">
+        <link rel= "stylesheet" href= "{% static 'css/dashboard.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     </head>
+    <body id="body">
+        <div class="task-form">
+            <navbar>
+                <ul class= "nav-list">
+                    <li class="nav-item">
+                        <button id="addBtn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <input type="text" class="tbox" placeholder="Search..."/>
+                        <button class="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="logOut">Log Out</button>
+                    </li>
+                </ul>
+            </navbar>
+
+            <div class="item-list">
+                <h2>Task List</h2>
+            </div>
+        </div>
+    </body>
 </html>

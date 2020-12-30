@@ -12,3 +12,6 @@ def login(request):
 
 def passwordreset(request):
     return render(request, 'todo/passwordreset.html')
+
+def dashboard(request):
+    return render(request, 'todo/dashboard.html')
