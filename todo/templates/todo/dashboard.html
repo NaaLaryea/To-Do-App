@@ -12,6 +12,9 @@
     </head>
     <body id="body">
         <div class="task-form">
+            
+            <p>Welcome {{user}}</p>
+
             <navbar>
                 <ul class= "nav-list">
                     <li class="nav-item">
@@ -34,9 +37,20 @@
             <div class="item-list">
                 <h2>Task List</h2>
                 <div class="task-list-form">
-                    <form>
-                        
-                    </form>
+                    <table>
+                        <thead>
+                            <th>Task name</th>
+                            <th>task desc</th>
+                        </thead>
+                        <tbody>
+                            {% for todo in user_todos  %}
+                            <tr> 
+                                <td>{{ todo.task_name }}</td>
+                                <td>{{ todo.task_desc }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

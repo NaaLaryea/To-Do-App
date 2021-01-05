@@ -16,14 +16,15 @@
         <div class="sign-up-form">
             <img src="{% static 'images/user-icon.png' %}">
             <h1>Sign Up Now</h1>
-            <form>
-                <input type="text" class="input-field" placeholder="Enter username here">
+            <form action="" method="POST" id="form">
+                {% csrf_token %}
+                <input type="text" class="input-field" name="username" placeholder="Enter username here">
                 <input type="email" class="input-field" name="email" required placeholder="Enter email here">
-                <input type="password" class="input-field" placeholder="Enter password">
+                <input type="password" class="input-field" name="password" placeholder="Enter password">
                 <!-- <p><span>I agree to the terms and conditions</span></p> -->
                 <input type="checkbox" id="check-btn" name="check-btn" value="confirm"/>
                 <label for="check-btn">I agree to the terms and conditions</label>
-                <button type="button" class="signup-btn">Sign up</button>
+                <button type="button" class="signup-btn" onclick="postData()">Sign up</button>
                 <hr>
                 <p class="or">OR</p>
                 <button type="button" class="google-btn">Login with Google</button>
@@ -32,3 +33,24 @@
         </div>
     </body>
 </html> 
+
+
+<script>
+
+    //get form data and post form data to server
+    const form = document.querySelector('form');
+    // const form = document.getElementsByName('email')
+    // const form = document.querySelector('form');
+    // const form = document.querySelector('form');
+    // const form = document.querySelector('form');
+    console.log(form.value)
+    const data = Object.fromEntries(new FormData(form).entries());
+    console.log(data)
+
+    function postData(){
+        document.getElementById('form').submit();
+    }
+
+
+
+</script>
