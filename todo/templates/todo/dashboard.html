@@ -40,19 +40,63 @@
                     <table>
                         <thead>
                             <th>Task name</th>
-                            <th>task desc</th>
+                            <th>task description</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Due date</th>
+                            <th>Date created</th>
                         </thead>
                         <tbody>
                             {% for todo in user_todos  %}
                             <tr> 
                                 <td>{{ todo.task_name }}</td>
                                 <td>{{ todo.task_desc }}</td>
+                                <td>{{ todo.status }}</td>
+                                <td>{{ todo.priority }}</td>
+                                <td>{{ todo.due_date }}</td>
+                                <td>{{ todo.date_created }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
+
+            <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">+</div>
+                        <form action="">
+                            <label >Task Name</label>
+                            <input type="text" placeholder="">
+                            <label>Task description</label>
+                            <input type="text" placeholder="">
+                            <label>Status</label>
+                            <input type="checkbox" id="status1" name="in-progress" value="In progress">
+                            <label for="in-progress"> In progress</label>
+                            <input type="checkbox" id="status2" name="completed" value="Completed">
+                            <label for="completed"> Completed</label>
+                            <label>Priority (between 1 and 3)</label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="3">
+                            <label>Due date</label>
+                            <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                            <input type="submit">
+                            <label>Date created</label>
+                            <a href="#" class="button">Add Task</a>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
+
+<script>
+    document.getElementById('addBtn').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "none";
+});
+</script>
