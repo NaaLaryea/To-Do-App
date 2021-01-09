@@ -11,9 +11,7 @@ def register(request):
     print("i have been hit")
 
     # take data from site
-    # store data in database
-# {'csrfmiddlewaretoken': ['pZ4N6AKNRGAEu4mS65kL7sd91SzWMDRTE1PbGlIIiILsdXbiYKzsVnHdZF9Ii6jN'], 
-# 'username': ['g'], 'email': ['p'], 'password': ['d']}
+    # store data in database 
     if request.method == "POST":
         print("inside post")
         print(request.POST)
@@ -23,15 +21,12 @@ def register(request):
         email = post_data["email"]
         password = post_data["password"]
 
-        # if len(username)==0:
         user = User.objects.create(
             username = username,
             password=password,
             email=email,
         )
 
-        # if user:
-        # user = authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
             print("user logged in")
@@ -48,7 +43,6 @@ def login(request):
         username = post_data["username"]
         password = post_data["password"]
 
-        # if len(username)==0:
         user = authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
@@ -61,8 +55,6 @@ def logout(request):
     auth_out(request)
     return redirect('/login')
 
-
-
 def passwordreset(request):
     return render(request, 'todo/passwordreset.html')
 
@@ -70,9 +62,6 @@ def dashboard(request):
     user = request.user
     user_todos = Todo.objects.filter(user=user)
     print(user_todos)
-
-    # {'csrfmiddlewaretoken': ['rMOt8nhJfqtLJzFbGO0a3qDQWGWEJh8RvV1C6jDPgsOZ41JLY8yNkjc8DiHGfqAR'], 'task_name': ['Cook lunch'], 
-    # 'task_desc': ['cook rice and stew'], 'status': ['In Progress'], 'priority': ['1'], 'due_date': ['2021-01-20']
 
     if request.method == "POST":
         print("inside post")

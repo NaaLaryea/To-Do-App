@@ -23,8 +23,8 @@ from todo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('todo/', index)
-    path('', views.homepage, name='homepage'),
-    path('register', views.register, name='register'),
+    # path('', views.homepage, name='homepage'),
+    path('', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
     path('passwordreset', views.passwordreset, name='passwordreset'),
