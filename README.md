@@ -17,26 +17,33 @@ Ensure to have the following installed:
 - A web browser
 
 ### Installing
+
 The following steps are required to install the appliaction:
 
-#### 1. Clone the repository
+#### 1. Clone the repository or Download the release branch
+
 git@github.com:NaaLaryea/To-Do-App.git
 
 #### 2. Create your own virtual environment
+
 python3 -m venv venv
 source venv/bin/activate
 
 #### 3. Install your requirements
+
 pip install -r requirements.txt
 
 #### 4. Make your migrations
+
 python manage.py makemigrations
 python manage.py migrate
 
 #### 5. Create a superuser
+
 python manage.py createsuperuser
 
 #### 6. Run the server
+
 python manage.py runserver
 
 ## Built With
