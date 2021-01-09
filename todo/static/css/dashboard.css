@@ -72,15 +72,15 @@ body{
     padding: 10px;
     width: 300px;
 }
+
+/* modal pop up styling */
 .bg-modal{
-    
-	
 	height: 100%;
 	position: absolute;
-	/* top: 0; */
+	top: 0;
 	display: none;
-	/* justify-content: center; */
-    /* align-items: center; */
+	justify-content: center;
+    align-items: center;
     
     width: 500px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
@@ -119,4 +119,12 @@ body{
 }
 .close:hover {
     color: #666;
+}
+
+
+
+table{
+  
+    width: 100%;
+
 }

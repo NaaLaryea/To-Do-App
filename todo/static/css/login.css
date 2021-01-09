@@ -52,10 +52,10 @@ button{
 .signin-btn:hover{
     background-color: rgb(196, 155, 78);
 }
-{
+/* {
     display: flex;
     margin-left: 10px;
-}
+} */
 a{
     text-decoration: none;
 }

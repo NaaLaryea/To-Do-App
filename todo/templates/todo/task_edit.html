@@ -3,7 +3,7 @@
     <head>
         <meta charset= "UTF-8">
         <meta name= "viewport" content= "width= device-width, initial-scale =1">
-        <title>To-Do List</title>
+        <title>To-Do Edit</title>
         {% load static %}
         <link rel= "stylesheet" href= "{% static 'css/dashboard.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,7 +15,7 @@
             
             <p>Welcome {{user}}</p>
 
-            <navbar>
+            <!-- <navbar>
                 <ul class= "nav-list">
                     <li class="nav-item">
                         <button id="addBtn">
@@ -29,47 +29,18 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'logout' %}" class="logOut">Log Out</a>
+                        <button class="logOut">Log Out</button>
                     </li>
                 </ul>
-            </navbar>
+            </navbar> -->
 
             <div class="item-list">
-                <h2>Task List</h2>
-                <div class="task-list-form">
-                    <table>
-                        <thead>
-                            <th>Task ID</th>
-                            <th>Task name</th>
-                            <th>task description</th>
-                            <th>Status</th>
-                            <!-- <th>Priority</th> -->
-                            <!-- <th>Due date</th> -->
-                            <!-- <th>Date created</th> -->
-
-                            <th>Action</th>
-
-                        </thead>
-                        <tbody>
-                            {% for todo in user_todos  %}
-                            <tr> 
-                                <td>{{ todo.id }}</td>
-                                <td>{{ todo.task_name }}</td>
-                                <td>{{ todo.task_desc }}</td>
-                                <td>{{ todo.status }}</td>
-                                <!-- <td>{{ todo.priority }}</td> -->
-                                <!-- <td>{{ todo.due_date }}</td> -->
-                                <!-- <td>{{ todo.date_created }}</td> -->
-
-                                <td>
-                                    <p><a href="{% url 'task_detail' todo.id %}">View</a></p>
-                                    <p><a href="{% url 'task_delete' todo.id %}">Delete</a></p>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                <h2>Edit Task</h2>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="submit" value="Update" name="edit_tasks">
+                </form>
             </div>
 
             <div class="bg-modal">
