@@ -20,7 +20,7 @@ Ensure to have the following installed:
 
 The following steps are required to install the appliaction:
 
-#### 1. Clone the repository or Download the release branch
+#### 1. Clone the repository 
 
 git@github.com:NaaLaryea/To-Do-App.git
 
