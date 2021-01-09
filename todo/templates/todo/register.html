@@ -20,7 +20,9 @@
                 {% csrf_token %}
                 <input type="text" class="input-field" name="username" placeholder="Enter username here">
                 <input type="email" class="input-field" name="email" required placeholder="Enter email here">
-                <input type="password" class="input-field" name="password" placeholder="Enter password">
+                <input type="password" class="input-field" id="password" name="password" placeholder="Enter password" required>
+                <!-- <label id= "password-label" for="password">Confirm new password</label> -->
+                <input type="password" class="input-field" id="confirm_password" placeholder="Confirm password" required>
                 <!-- <p><span>I agree to the terms and conditions</span></p> -->
                 <input type="checkbox" id="check-btn" name="check-btn" value="confirm"/>
                 <label for="check-btn">I agree to the terms and conditions</label>
@@ -37,20 +39,24 @@
 
 <script>
 
-    //get form data and post form data to server
+    // get elements
+    const password = document.getElementById("password")
+    const confirm_password = document.getElementById("confirm_password");
     const form = document.querySelector('form');
-    // const form = document.getElementsByName('email')
-    // const form = document.querySelector('form');
-    // const form = document.querySelector('form');
-    // const form = document.querySelector('form');
-    console.log(form.value)
+
+    //get form data and post form data to server    
     const data = Object.fromEntries(new FormData(form).entries());
-    console.log(data)
 
+    // send data to server function
     function postData(){
-        document.getElementById('form').submit();
+        password = password.value
+        confirm_password = confirm_password.value
+
+        if (password==confirm_password){
+            document.getElementById('form').submit();
+        }else{
+            alert("Passwords do not match, Please try again")
+        }
     }
-
-
 
 </script>

@@ -31,7 +31,11 @@ def register(request):
         )
 
         # if user:
-        return redirect('/dashboard')
+        # user = authenticate(username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            print("user logged in")
+            return redirect('/dashboard')
 
     return render(request, 'todo/register.html', context={})
 

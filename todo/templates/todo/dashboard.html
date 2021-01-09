@@ -102,9 +102,6 @@
                             
                             <br>
                             <input type="submit" onclick="postData()">
-                            
-                            
-
                         </form>
                     </div>
                 </div>
@@ -125,8 +122,6 @@ document.querySelector('.close').addEventListener("click", function() {
 //get form data and post form data to server
 const form = document.querySelector('form');
 // const form = document.getElementsByName('email')
-// const form = document.querySelector('form');
-// const form = document.querySelector('form');
 // const form = document.querySelector('form');
 console.log(form.value)
 const data = Object.fromEntries(new FormData(form).entries());
